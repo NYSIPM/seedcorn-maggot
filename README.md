@@ -1,17 +1,22 @@
 # Seedcorn Maggot Models
-Version 0.0.0 | Last updated 10/18/2022
+
+Version 0.0.1 | Last updated 10/25/2022
 
 [Specifications](#specifications) | [Alberta model](#alberta-model) | [Iowa model](#iowa-model) | [NEWA model](#newa-model) | [Ohio model](#ohio-model) | [Wisconsin model](#wisconsin-model)
 
 ## Specifications
 
-This module is launched from the command line using Python 3.9 or later. Clone this module from Github, navigate to the local directory where you stored this module, and run `python3 script.py`. Enter the required information when prompted.
+##### About
+This module is developed and maintained by [New York State Integrated Pest Management](https://nysipm.cornell.edu). 
 
-The seedcorn maggot (SCM) module queries an RCC-ACIS web service using latitude/longitude decimal degree coordinates to return interpolated daily maximum and minimum temperature at a resolution of 4km for 'NEWA' and 'Ohio' SCM models. _**'Alberta', 'Iowa', and 'Wisconsin' models are not included at this time.**_
+##### Quick start
+Clone this module from Github, navigate to the local directory where you stored this module, and run `python3 script.py` from the command line interface using Python 3.9 or later. Enter the required information when prompted.
 
-A single CSV file is exported to the local `output` directory which summarizes the threshold date for first adult emergence at each location coordinate provided.
+The seedcorn maggot (SCM) module queries an RCC-ACIS web service using [PRISM](https://prism.oregonstate.edu/) latitude/longitude decimal degree coordinates, accessed via [RCC-ACIS web services](https://www.rcc-acis.org/docs_webservices.html) to import interpolated daily maximum and minimum temperature at a resolution of 8km for 'NEWA' and 'Ohio' SCM models. _**'Alberta', 'Iowa', and 'Wisconsin' models are not included at this time.**_
 
-Location coordinates are provided by the user as a CSV with records containing a unique ID in the first column, latitude as positive decimal degree values in the second column, and North American longitude as negative decimal degree values in the third column. Column headers are required but the name does not matter.
+ Three documents are exported. The first and second are daily record lists, for NEWA and Ohio model calculations. Each contains  F to C conversions, daily heat units, and accumulated heat units. The latter is grouped chronologically by location. The third is a master list of locations with two usser-defined time period mean temperatures, NEWA model adult emergence, and Ohio model adult emergence. All three files are exported in CSV format to the local `output` directory.
+
+The user provides input coordinates CSV location, which contains a unique ID in the first column, North American latitude as positive decimal degree values in the second column, and North American longitude as negative decimal degree values in the third column. Column headers are required but the name does not matter.
 <small>[back to top](#seedcorn-maggot-models)</small>
 
 
